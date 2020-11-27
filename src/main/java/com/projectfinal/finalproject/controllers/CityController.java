@@ -40,10 +40,10 @@ public class CityController {
         return "redirect:/cities";
     }
 
-    @RequestMapping(value="cities/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="cities/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(City city) {
         cityService.save(city);
-        return "redirect:/states";
+        return "redirect:/cities";
     }
 
     @RequestMapping(value="cities/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
