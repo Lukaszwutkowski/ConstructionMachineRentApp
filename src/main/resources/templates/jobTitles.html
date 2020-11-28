@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <title>Cities Management</title>
+    <title>States Management</title>
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -63,7 +63,7 @@
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList5" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Lokalizacja</span>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="../templates/states.html" th:href="@{/states}" role="tab">Wojewodztwa</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/states}" role="tab">Wojewodztwa</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/cities}" role="tab">Miasta</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/locations}" role="tab">Miejsce</a>
                 </div>
@@ -78,40 +78,27 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            <h1>Miasta</h1>
+                            <h1>Stanowiska pracy</h1>
                         </header>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Dodaj Miasto</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Dodaj nowe stanowisko pracy</button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Wpisz nazwe miasta</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Dodaj nowe stanowisko pracy</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form th:action="@{/cities/addNew}" th:method="post">
+                                        <form th:action="@{/jobTitles/addNew}" th:method="post">
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Nazwa:</label>
-                                                <input type="text" class="form-control" id="recipient-name" name="name">
+                                                <label for="addJobTitleDescription" class="col-form-label">Nazwa stanowiska:</label>
+                                                <input type="text" class="form-control" id="addJobTitleDescription" name="description">
                                             </div>
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Opis:</label>
-                                                <input type="text" class="form-control" id="recipient-name2" name="details">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Wojewodztwo:</label>
-                                                <select class="form-control" id="recipient-name3" name="stateid">
-                                                    <option>-WYBIERZ-</option>
-                                                    <option th:each="state : ${states}"
-                                                            th:value="${state.id}"
-                                                            th:text="${state.name}"></option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Kod pocztowy:</label>
-                                                <input type="text" class="form-control" id="recipient-name4" name="zipCode">
+                                                <label for="addJobTitleDetails" class="col-form-label">Opis stanowiska:</label>
+                                                <input type="text" class="form-control" id="addJobTitleDetails" name="details">
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-primary">Zapisz</button>
@@ -126,37 +113,38 @@
                             <tbody>
                             <tr>
                                 <th><i class="icon_calendar"></i>Id</th>
-                                <th><i class="icon_profile"></i>Nazwa</th>
-                                <th><i class="icon_calendar"></i>Kod pocztowy</th>
+                                <th><i class="icon_profile"></i>Nazwa Stanowiska</th>
+                                <th><i class="icon_profile"></i>Opis Stanowiska</th>
                                 <th><i class="icon_cogs"></i>Akcja</th>
                             </tr>
-                            <tr th:each="city : ${cities}">
-                                <td th:text="${city.id}">Id</td>
-                                <td th:text="${city.name}">Nazwa</td>
-                                <td th:text="${city.zipCode}">Kod pocztowy</td>
+                            <tr th:each="jobTitle : ${jobTitles}">
+                                <td th:text="${jobTitle.id}">Id</td>
+                                <td th:text="${jobTitle.description}">Nazwa</td>
+                                <td th:text="${jobTitle.details}">Id</td>
+
                                 <td>
                                     <!-- DETAILS BUTTON -->
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" th:attrappend="data-target=${city.id}">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" th:attrappend="data-target=${jobTitle.id}" >
                                         Wyswietl
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" th:attrappend="id=${city.id}">
+                                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" th:attrappend="id=${jobTitle.id}">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Wybrane miasto</h5>
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Wybrane stanowisko pracy</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <ul class="list-group">
-                                                        <li class="list-group-item"><p class="h6">Id:</p><span th:text="${city.getId()}"></span></li>
-                                                        <li class="list-group-item"><p class="h6">Nazwa:</p><span th:text="${city.name}"></span></li>
-                                                        <li class="list-group-item"><p class="h6">Kod pocztowy:</p><span th:text="${city.zipCode}"></span></li>
+                                                        <li class="list-group-item"><p class="h6">Id:</p><span th:text="${jobTitle.getId()}"></span></li>
+                                                        <li class="list-group-item"><p class="h6">Nazwa Stanowiska:</p><span th:text="${jobTitle.description}"></span></li>
+                                                        <li class="list-group-item"><p class="h6">Opis Stanowiska:</p><span th:text="${jobTitle.details}"></span></li>
                                                     </ul>
 
                                                 </div>
@@ -167,10 +155,10 @@
                                         </div>
                                     </div>
                                     <button type="button"
-                                            class="btn btn-info" data-toggle="modal" data-target="#myModal" th:href="@{/cities/findById/(id=${city.id})}" th:attrappend="data-target=${city.id}">Edytuj
+                                            class="btn btn-info" data-toggle="modal" data-target="#myModal" th:href="@{/jobTitles/findById/(id=${jobTitle.id})}" th:attrappend="data-target=${jobTitle.id}">Edytuj
                                     </button>
 
-                                    <div class="modal fade" id="myModal" role="dialog" th:attrappend="id=${city.id}">
+                                    <div class="modal fade" id="myModal" role="dialog" th:attrappend="id=${jobTitle.id}">
                                         <div class="modal-dialog">
 
                                             <!-- Modal content-->
@@ -185,53 +173,39 @@
                                                     <!-- Form Name -->
                                                     <legend>Dane Rekordu</legend>
 
-                                                    <form class="form-horizontal" action="#" th:action="@{/cities/update}" th:object="${city}"
+                                                    <form class="form-horizontal" action="#" th:action="@{/jobTitles/update}" th:object="${jobTitle}"
                                                           method="post">
                                                         <fieldset>
 
                                                             <div class="form-group">
                                                                 <div class="col-md-4">
-                                                                    <input id="id" path="id" name="id" th:value="${city.id}"
-                                                                           placeholder="id" class="form-control input-md"/>
+
+                                                                    <input id="id" path="id" name="id" th:value="${jobTitle.id}"
+                                                                           placeholder="id" class="form-control input-md"
+                                                                           />
                                                                 </div>
                                                             </div>
 
                                                             <!-- Text input-->
                                                             <div class="form-group">
-                                                                <label class="col-md-4 control-label" for="name">Nazwa</label>
+                                                                <label class="col-md-4 control-label" for="editJobTitleDescription">Nazwa Stanowiska</label>
                                                                 <div class="col-md-6">
-                                                                    <input id="name" path="name" name="name"
+                                                                    <input id="editJobTitleDescription" path="name" name="description"
                                                                            type="text" placeholder="name"
-                                                                           class="form-control input-md" th:value="${city.name}"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-4 control-label" for="name">Wojewodztwo</label>
-                                                                <select class="form-control col-md-6" id="recipient-name5" name="stateid">
-                                                                    <option>-WYBIERZ-</option>
-                                                                    <option th:each="state : ${states}"
-                                                                            th:value="${state.id}"
-                                                                            th:text="${state.name}"></option>
-                                                                </select>
-
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-4 control-label" for="name">Opis</label>
-                                                                <div class="col-md-6">
-                                                                    <input id="name2" path="name" name="details"
-                                                                           type="text" placeholder="name"
-                                                                           class="form-control input-md" th:value="${city.details}"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-4 control-label" for="name">Kod pocztowy</label>
-                                                                <div class="col-md-6">
-                                                                    <input id="name3" path="name" name="zipCode"
-                                                                           type="text" placeholder="name"
-                                                                           class="form-control input-md" th:value="${city.zipCode}"
+                                                                           class="form-control input-md" th:value="${jobTitle.description}"
                                                                     />
                                                                 </div>
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-4 control-label" for="editJobTitleDetails">Opis Stanowiska</label>
+                                                                <div class="col-md-6">
+                                                                    <input id="editJobTitleDetails" path="name" name="details"
+                                                                           type="text" placeholder="name"
+                                                                           class="form-control input-md" th:value="${jobTitle.details}"
+                                                                    />
+                                                                </div>
+                                                            </div>
+
 
                                                             <!-- Button -->
                                                             <div class="form-group">
@@ -256,7 +230,7 @@
 
                                     <!-- DELETE BUTTON -->
 
-                                    <a class="btn btn-danger" id="deleteButton" th:href="@{/cities/delete/(id=${city.id})}" onclick="return confirm('Czy napewno chcesz usunac rekord?');"><i class="icon_close_alt2"></i>Usun</a>
+                                    <a class="btn btn-danger" id="deleteButton" th:href="@{/jobTitles/delete/(id=${jobTitle.id})}" onclick="return confirm('Czy napewno chcesz usunac rekord?');"><i class="icon_close_alt2"></i>Usun</a>
                                 </td>
                             </tr>
 

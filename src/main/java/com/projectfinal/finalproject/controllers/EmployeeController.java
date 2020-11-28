@@ -59,7 +59,7 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @RequestMapping(value="employees/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="employees/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(Employee employee) {
         employeeService.save(employee);
         return "redirect:/employees";

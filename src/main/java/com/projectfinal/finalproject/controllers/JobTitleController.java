@@ -35,7 +35,7 @@ public class JobTitleController {
         return "redirect:/jobTitles";
     }
 
-    @RequestMapping(value="jobTitles/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="jobTitles/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(JobTitle jobTitle) {
         jobTitleService.save(jobTitle);
         return "redirect:/jobTitles";

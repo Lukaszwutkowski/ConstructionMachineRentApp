@@ -35,7 +35,7 @@ public class EmployeeTypeController {
         return "redirect:/employeeTypes";
     }
 
-    @RequestMapping(value="employeeTypes/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="employeeTypes/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(EmployeeType employeeType) {
         employeeTypeService.save(employeeType);
         return "redirect:/employeeTypes";
