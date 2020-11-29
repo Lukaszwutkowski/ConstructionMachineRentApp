@@ -33,19 +33,19 @@
                     <a class="list-group-item list-group-item-action" data-toggle="list"
                        th:href="@{/constructionMachines}" role="tab">Posiadane</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachinesMaintances}" role="tab">Serwis</a>
+                       th:href="@{/constructionMachineMaintances}" role="tab">Serwis</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachinesMovemenst}" role="tab">Pozycja</a>
+                       th:href="@{/constructionMachineMovements}" role="tab">Pozycja</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachinesHires}" role="tab">Wynajem</a>
+                       th:href="@{/constructionMachineHires}" role="tab">Wynajem</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachinesMakes}" role="tab">Makes</a>
+                       th:href="@{/constructionMachineMakes}" role="tab">Makes</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachinesModels}" role="tab">Model</a>
+                       th:href="@{/constructionMachineModels}" role="tab">Model</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachinesTypes}" role="tab">Typ</a>
+                       th:href="@{/constructionMachineTypes}" role="tab">Typ</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachinesStatuses}" role="tab">Status</a>
+                       th:href="@{/constructionMachineStatuses}" role="tab">Status</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
@@ -230,7 +230,7 @@
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label">Stanowisko
                                                     pracy:</label>
-                                                <select class="form-control" id="recipient-name15" name="jobTitleId">
+                                                <select class="form-control" id="recipient-name15" name="jobtitleid">
                                                     <option>-WYBIERZ-</option>
                                                     <option th:each="jobTitle : ${jobTitles}"
                                                             th:value="${jobTitle.id}"
@@ -242,7 +242,7 @@
                                                 <label for="recipient-name" class="col-form-label">Rodzaj
                                                     zatrudnienia:</label>
                                                 <select class="form-control" id="recipient-name16"
-                                                        name="employeeTypeId">
+                                                        name="employeetypeid">
                                                     <option>-WYBIERZ-</option>
                                                     <option th:each="employeeType : ${employeeTypes}"
                                                             th:value="${employeeType.id}"
@@ -345,10 +345,10 @@
                                                         <li class="list-group-item"><p class="h6">Wyksztalcenie:</p>
                                                             <span th:text="${employee.title}"></span></li>
                                                         <li class="list-group-item"><p class="h6">Stanowisko pracy:</p>
-                                                            <span th:text="${employee.jobTitle}"></span></li>
+                                                            <span th:text="${employee.getJobtitleid()}"></span></li>
                                                         <li class="list-group-item"><p class="h6">Rodzaj
                                                             zatrudnienia:</p><span
-                                                                th:text="${employee.employeeType}"></span></li>
+                                                                th:text="${employee.getEmployeetypeid()}"></span></li>
                                                         <li class="list-group-item"><p class="h6">Inicjaly:</p><span
                                                                 th:text="${employee.initials}"></span></li>
                                                     </ul>
@@ -477,7 +477,9 @@
                                                                     <option value="Inzynier">Inzynier</option>
                                                                     <option value="Magister">Magister</option>
                                                                     <option value="Doktor">Doktor</option>
-                                                                    <option value="Doktor Habilitowany">Doktor habilitowany</option>
+                                                                    <option value="Doktor Habilitowany">Doktor
+                                                                        habilitowany
+                                                                    </option>
                                                                 </select>
                                                             </div>
                                                             <div class="form-group">
@@ -521,14 +523,15 @@
                                                                         name="maritalStatus">
                                                                     <option>-WYBIERZ-</option>
                                                                     <option value="Wolny/Wolna">Wolny/Wolna</option>
-                                                                    <option value="Zonaty/Zamezna">Zonaty/Zamezna</option>
+                                                                    <option value="Zonaty/Zamezna">Zonaty/Zamezna
+                                                                    </option>
                                                                 </select>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Stanowisko
                                                                     pracy:</label>
                                                                 <select class="form-control" id="editname15"
-                                                                        name="jobTitleId">
+                                                                        name="jobtitleid">
                                                                     <option>-WYBIERZ-</option>
                                                                     <option th:each="jobTitle : ${jobTitles}"
                                                                             th:value="${jobTitle.id}"
@@ -539,7 +542,7 @@
                                                             <label for="recipient-name" class="col-form-label">Rodzaj
                                                                 zatrudnienia:</label>
                                                             <select class="form-control" id="editname16"
-                                                                    name="employeeTypeId">
+                                                                    name="employeetypeid">
                                                                 <option>-WYBIERZ-</option>
                                                                 <option th:each="employeeType : ${employeeTypes}"
                                                                         th:value="${employeeType.id}"
