@@ -54,43 +54,43 @@
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList2" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Ludzie</span>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/employees}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/employees}"
                        role="tab">Pracownicy</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/clients}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/clients}"
                        role="tab">Klienci</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/suppliers}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/suppliers}"
                        role="tab">Dostawcy</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/contacts}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/contacts}"
                        role="tab">Kontakty</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/users}" role="tab">Uzytkownicy</a>
+                    <a class="list-group-item list-group-item-action" th:href="@{/users}" role="tab">Uzytkownicy</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList3" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">HR</span>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/employeeTypes}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/employeeTypes}"
                        role="tab">Rodzaj Zatrudnienia</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/jobTitles}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/jobTitles}"
                        role="tab">Stanowiska Pracy</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList4" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Finanse</span>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/invoices}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/invoices}"
                        role="tab">Faktury</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/invoiceStatuses}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/invoiceStatuses}"
                        role="tab">Faktury - Status</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList5" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Lokalizacja</span>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/states}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/states}"
                        role="tab">Wojewodztwa</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/cities}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/cities}"
                        role="tab">Miasta</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/locations}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/locations}"
                        role="tab">Miejsce</a>
                 </div>
             </div>
@@ -128,7 +128,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label">Typ:</label>
-                                                <select class="form-control" id="recipient-name4" name="constructionmachinetypeid">
+                                                <select class="form-control" id="recipient-name4"
+                                                        name="constructionmachinetypeid">
                                                     <option>-WYBIERZ-</option>
                                                     <option th:each="constructionMachineType : ${constructionMachineTypes}"
                                                             th:value="${constructionMachineType.id}"
@@ -137,7 +138,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label">Marka:</label>
-                                                <select class="form-control" id="recipient-name6" name="constructionmachinemakeid">
+                                                <select class="form-control" id="recipient-name6"
+                                                        name="constructionmachinemakeid">
                                                     <option>-WYBIERZ-</option>
                                                     <option th:each="constructionMachineMake : ${constructionMachineMakes}"
                                                             th:value="${constructionMachineMake.id}"
@@ -146,7 +148,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label">Model:</label>
-                                                <select class="form-control" id="recipient-name5" name="constructionmachinemodelid">
+                                                <select class="form-control" id="recipient-name5"
+                                                        name="constructionmachinemodelid">
                                                     <option>-WYBIERZ-</option>
                                                     <option th:each="constructionMachineModel : ${constructionMachineModels}"
                                                             th:value="${constructionMachineModel.id}"
@@ -155,7 +158,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label">Status:</label>
-                                                <select class="form-control" id="recipient-name0" name="constructionmachinestatusid">
+                                                <select class="form-control" id="recipient-name0"
+                                                        name="constructionmachinestatusid">
                                                     <option>-WYBIERZ-</option>
                                                     <option th:each="constructionMachineStatus : ${constructionMachineStatuses}"
                                                             th:value="${constructionMachineStatus.id}"
@@ -163,7 +167,8 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Odpowiedzialnosc:</label>
+                                                <label for="recipient-name"
+                                                       class="col-form-label">Odpowiedzialnosc:</label>
                                                 <select class="form-control" id="recipient-name01" name="employeeid">
                                                     <option>-WYBIERZ-</option>
                                                     <option th:each="employee : ${employees}"
@@ -181,7 +186,8 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Numer seryjny:</label>
+                                                <label for="recipient-name" class="col-form-label">Numer
+                                                    seryjny:</label>
                                                 <input type="text" class="form-control" id="recipient-name2"
                                                        name="constructionMachineNumber">
                                             </div>
@@ -203,7 +209,8 @@
                                                        name="registrationDate">
                                             </div>
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Masa Ladunkowa pojazdu:</label>
+                                                <label for="recipient-name" class="col-form-label">Masa Ladunkowa
+                                                    pojazdu:</label>
                                                 <input type="text" class="form-control" id="recipient-name8"
                                                        name="netWeight">
                                             </div>
@@ -213,7 +220,8 @@
                                                        name="power">
                                             </div>
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Pojemnosc baku:</label>
+                                                <label for="recipient-name" class="col-form-label">Pojemnosc
+                                                    baku:</label>
                                                 <input type="text" class="form-control" id="recipient-name14"
                                                        name="fuelCapacity">
                                             </div>
@@ -243,9 +251,15 @@
                             </tr>
                             <tr th:each="constructionMachine : ${constructionMachines}">
                                 <td th:text="${constructionMachine.id}">Id</td>
-                                <td th:text="${constructionMachine.name} + ' ' + ${constructionMachine.getConstructionMachineType().description}">Nazwa i typ pojazdu</td>
-                                <td th:text="${constructionMachine.getConstructionMachineMake().description + ' ' + constructionMachine.getConstructionMachineModel().description}">Marka i Model pojazdu</td>
-                                <td th:text="${constructionMachine.getConstructionMachineStatus().description}">Status pojazdu</td>
+                                <td th:text="${constructionMachine.name} + ' ' + ${constructionMachine.getConstructionMachineType().description}">
+                                    Nazwa i typ pojazdu
+                                </td>
+                                <td th:text="${constructionMachine.getConstructionMachineMake().description + ' ' + constructionMachine.getConstructionMachineModel().description}">
+                                    Marka i Model pojazdu
+                                </td>
+                                <td th:text="${constructionMachine.getConstructionMachineStatus().description}">Status
+                                    pojazdu
+                                </td>
                                 <td th:text="${constructionMachine.currentLocation.description}">
                                     Lokalizacja pojazdu
                                 </td>
@@ -254,7 +268,8 @@
 
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-success" data-toggle="modal"
-                                            data-target="#exampleModalLong" th:attrappend="data-target=${constructionMachine.id}">
+                                            data-target="#exampleModalLong"
+                                            th:attrappend="data-target=${constructionMachine.id}">
                                         Wyswietl
                                     </button>
 
@@ -266,7 +281,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLongTitle">Wybrany
-                                                    pojazd</h5>
+                                                        pojazd</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -279,32 +294,47 @@
                                                         <li class="list-group-item"><p class="h6">Nazwa:</p><span
                                                                 th:text="${constructionMachine.name}"></span></li>
                                                         <li class="list-group-item"><p class="h6">Marka:</p><span
-                                                                th:text="${constructionMachine.getConstructionMachineMake().description}"></span></li>
+                                                                th:text="${constructionMachine.getConstructionMachineMake().description}"></span>
+                                                        </li>
                                                         <li class="list-group-item"><p class="h6">Model:</p><span
-                                                                th:text="${constructionMachine.getConstructionMachineModel().description}"></span></li>
+                                                                th:text="${constructionMachine.getConstructionMachineModel().description}"></span>
+                                                        </li>
                                                         <li class="list-group-item"><p class="h6">Typ:</p><span
-                                                                th:text="${constructionMachine.getConstructionMachineType().description}"></span></li>
-                                                        <li class="list-group-item"><p class="h6">Aktualna lokalizacja:</p><span
+                                                                th:text="${constructionMachine.getConstructionMachineType().description}"></span>
+                                                        </li>
+                                                        <li class="list-group-item"><p class="h6">Aktualna
+                                                            lokalizacja:</p><span
                                                                 th:text="${constructionMachine.currentLocation.description} + ' ' + ${constructionMachine.currentLocation.adress} + ' ' + ${constructionMachine.currentLocation.city.getZipCode()} + ' ' + ${constructionMachine.currentLocation.city.getName()} + ' ' + ${constructionMachine.currentLocation.state.getName()}"></span>
                                                         </li>
                                                         <li class="list-group-item"><p class="h6">Status:</p><span
-                                                                th:text="${constructionMachine.getConstructionMachineStatus().description}"></span></li>
-                                                        <li class="list-group-item"><p class="h6">Numer seryjny:</p><span
-                                                                th:text="${constructionMachine.constructionMachineNumber}"></span></li>
+                                                                th:text="${constructionMachine.getConstructionMachineStatus().description}"></span>
+                                                        </li>
+                                                        <li class="list-group-item"><p class="h6">Numer seryjny:</p>
+                                                            <span
+                                                                    th:text="${constructionMachine.constructionMachineNumber}"></span>
+                                                        </li>
                                                         <li class="list-group-item"><p class="h6">Opis:</p><span
-                                                                th:text="${constructionMachine.description}"></span></li>
+                                                                th:text="${constructionMachine.description}"></span>
+                                                        </li>
                                                         <li class="list-group-item"><p class="h6">Odpowiedzialnosc:</p>
-                                                            <span th:text="${constructionMachine.inCharge.firstName} + ${constructionMachine.inCharge.lastName}"></span></li>
-                                                        <li class="list-group-item"><p class="h6">Pojemnosc baku:</p><span
-                                                                th:text="${constructionMachine.fuelCapacity}"></span></li>
+                                                            <span th:text="${constructionMachine.inCharge.firstName} + ${constructionMachine.inCharge.lastName}"></span>
+                                                        </li>
+                                                        <li class="list-group-item"><p class="h6">Pojemnosc baku:</p>
+                                                            <span
+                                                                    th:text="${constructionMachine.fuelCapacity}"></span>
+                                                        </li>
                                                         <li class="list-group-item"><p class="h6">Masa ladunkowa:</p>
-                                                            <span th:text="${constructionMachine.netWeight}"></span></li>
+                                                            <span th:text="${constructionMachine.netWeight}"></span>
+                                                        </li>
                                                         <li class="list-group-item"><p class="h6">Moc:</p>
                                                             <span th:text="${constructionMachine.power}"></span></li>
                                                         <li class="list-group-item"><p class="h6">Data zakupu:</p><span
-                                                                th:text="${constructionMachine.acquisitionDate}"></span></li>
-                                                        <li class="list-group-item"><p class="h6">Data pierwszej rejestracji:</p><span
-                                                                th:text="${constructionMachine.registrationDate}"></span></li>
+                                                                th:text="${constructionMachine.acquisitionDate}"></span>
+                                                        </li>
+                                                        <li class="list-group-item"><p class="h6">Data pierwszej
+                                                            rejestracji:</p><span
+                                                                th:text="${constructionMachine.registrationDate}"></span>
+                                                        </li>
                                                         <li class="list-group-item"><p class="h6">Uwagi:</p>
                                                             <span th:text="${constructionMachine.remarks}"></span></li>
                                                     </ul>
@@ -342,7 +372,8 @@
                                                     <legend>Dane Rekordu</legend>
 
                                                     <form class="form-horizontal" action="#"
-                                                          th:action="@{/constructionMachines/update}" th:object="${constructionMachine}"
+                                                          th:action="@{/constructionMachines/update}"
+                                                          th:object="${constructionMachine}"
                                                           method="post">
                                                         <fieldset>
 
@@ -357,8 +388,10 @@
 
                                                             <!-- Text input-->
                                                             <div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">Typ:</label>
-                                                                <select class="form-control" id="recipient-name00" name="constructionmachinetypeid">
+                                                                <label for="recipient-name"
+                                                                       class="col-form-label">Typ:</label>
+                                                                <select class="form-control" id="recipient-name00"
+                                                                        name="constructionmachinetypeid">
                                                                     <option>-WYBIERZ-</option>
                                                                     <option th:each="constructionMachineType : ${constructionMachineTypes}"
                                                                             th:value="${constructionMachineType.id}"
@@ -367,7 +400,8 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Marka:</label>
-                                                                <select class="form-control" id="recipient-name001" name="constructionmachinemakeid">
+                                                                <select class="form-control" id="recipient-name001"
+                                                                        name="constructionmachinemakeid">
                                                                     <option>-WYBIERZ-</option>
                                                                     <option th:each="constructionMachineMake : ${constructionMachineMakes}"
                                                                             th:value="${constructionMachineMake.id}"
@@ -376,7 +410,8 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Model:</label>
-                                                                <select class="form-control" id="recipient-name002" name="constructionmachinetypeid">
+                                                                <select class="form-control" id="recipient-name002"
+                                                                        name="constructionmachinetypeid">
                                                                     <option>-WYBIERZ-</option>
                                                                     <option th:each="constructionMachineModel : ${constructionMachineModels}"
                                                                             th:value="${constructionMachineModel.id}"
@@ -385,7 +420,8 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Status:</label>
-                                                                <select class="form-control" id="recipient-name003" name="constructionmachinemodelid">
+                                                                <select class="form-control" id="recipient-name003"
+                                                                        name="constructionmachinemodelid">
                                                                     <option>-WYBIERZ-</option>
                                                                     <option th:each="constructionMachineStatus : ${constructionMachineStatuses}"
                                                                             th:value="${constructionMachineStatus.id}"
@@ -394,7 +430,8 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Odpowiedzialnosc:</label>
-                                                                <select class="form-control" id="recipient-name004" name="employeeid">
+                                                                <select class="form-control" id="recipient-name004"
+                                                                        name="employeeid">
                                                                     <option>-WYBIERZ-</option>
                                                                     <option th:each="employee : ${employees}"
                                                                             th:value="${employee.id}"
@@ -403,7 +440,8 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Lokalizacja:</label>
-                                                                <select class="form-control" id="recipient-name005" name="locationid">
+                                                                <select class="form-control" id="recipient-name005"
+                                                                        name="locationid">
                                                                     <option>-WYBIERZ-</option>
                                                                     <option th:each="location : ${locations}"
                                                                             th:value="${location.id}"
@@ -411,45 +449,58 @@
                                                                 </select>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">Numer seryjny:</label>
-                                                                <input type="text" class="form-control" id="recipient-name7"
+                                                                <label for="recipient-name" class="col-form-label">Numer
+                                                                    seryjny:</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="recipient-name7"
                                                                        name="constructionMachineNumber">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Data
                                                                     zakupu:</label>
-                                                                <input type="date" class="form-control" id="recipient-name006"
+                                                                <input type="date" class="form-control"
+                                                                       id="recipient-name006"
                                                                        name="acquisitionDate">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">Opis:</label>
-                                                                <input type="text" class="form-control" id="recipient-name007"
+                                                                <label for="recipient-name"
+                                                                       class="col-form-label">Opis:</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="recipient-name007"
                                                                        name="description">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Data
                                                                     pierwszej rejestracji:</label>
-                                                                <input type="date" class="form-control" id="recipient-name008"
+                                                                <input type="date" class="form-control"
+                                                                       id="recipient-name008"
                                                                        name="registrationDate">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">Masa Ladunkowa pojazdu:</label>
-                                                                <input type="text" class="form-control" id="recipient-name009"
+                                                                <label for="recipient-name" class="col-form-label">Masa
+                                                                    Ladunkowa pojazdu:</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="recipient-name009"
                                                                        name="netWeight">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">Moc pojazdu:</label>
-                                                                <input type="text" class="form-control" id="recipient-name111"
+                                                                <label for="recipient-name" class="col-form-label">Moc
+                                                                    pojazdu:</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="recipient-name111"
                                                                        name="power">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">Pojemnosc baku:</label>
-                                                                <input type="text" class="form-control" id="recipient-name112"
+                                                                <label for="recipient-name" class="col-form-label">Pojemnosc
+                                                                    baku:</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="recipient-name112"
                                                                        name="fuelCapacity">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" class="col-form-label">Uwagi:</label>
-                                                                <input type="text" class="form-control" id="recipient-name113"
+                                                                <input type="text" class="form-control"
+                                                                       id="recipient-name113"
                                                                        name="remarks">
                                                             </div>
                                                             <!-- Button -->

@@ -201,7 +201,7 @@
                                 <td th:text="${client.id}">Id</td>
                                 <td th:text="${client.name}">Nazwa</td>
                                 <td th:text="${client.email}">Email</td>
-                                <td th:text="${client.address} + ' ' + ${client.getCity().zipCode} + ' ' + ${client.getCity().name} + ' ' + ${client.getState().name}">
+                                <td th:text="${client.address} + ' ' + ${client.city.getZipCode()} + ' ' + ${client.city.getName()} + ' ' + ${client.state.getName()}">
                                     Adres zamieszkania
                                 </td>
                                 <td th:text="'Telefon kom.: '+ ${client.mobile} + ' Telefon: ' + ${client.phone} ">
@@ -241,10 +241,10 @@
                                                             domu:</p><span th:text="${client.address}"></span></li>
                                                         <li class="list-group-item"><p class="h6">Miasto i kod
                                                             pocztowy:</p><span
-                                                                th:text="${client.getCity().name} + ' ' + ${client.getCity().zipCode}"></span>
+                                                                th:text="${client.city.getName()} + ' ' + ${client.city.getZipCode()}"></span>
                                                         </li>
                                                         <li class="list-group-item"><p class="h6">Wojewodztwo:</p><span
-                                                                th:text="${client.getState().name}"></span></li>
+                                                                th:text="${client.state.getName()}"></span></li>
                                                         <li class="list-group-item"><p class="h6">Adres Email:</p><span
                                                                 th:text="${client.email}"></span></li>
                                                         <li class="list-group-item"><p class="h6">Telefon:</p><span
