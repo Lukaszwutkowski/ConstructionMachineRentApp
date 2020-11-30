@@ -29,65 +29,68 @@
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList" role="tablist">
-                    <span class="badge badge-dark" style="font-size: 20px">Maszyny Budowlane</span>
-                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                    <span class="badge badge-dark" style="font-size: 20px">Maszyny Budowlane - Stan</span>
+                    <a class="list-group-item list-group-item-action"
                        th:href="@{/constructionMachines}" role="tab">Posiadane</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                    <a class="list-group-item list-group-item-action"
                        th:href="@{/constructionMachineMaintances}" role="tab">Serwis</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachineMovements}" role="tab">Pozycja</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachineHires}" role="tab">Wynajem</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachineMakes}" role="tab">Makes</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachineModels}" role="tab">Model</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list"
-                       th:href="@{/constructionMachineTypes}" role="tab">Typ</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list"
+                    <a class="list-group-item list-group-item-action"
                        th:href="@{/constructionMachineStatuses}" role="tab">Status</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineMovements}" role="tab">Pozycja</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineHires}" role="tab">Wynajem</a>
+                </div>
+                <div class="sidebar-sticky pt-3">
+                    <span class="badge badge-dark" style="font-size: 20px">Maszyny Budowlane - Dane</span>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineMakes}" role="tab">Marka</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineModels}" role="tab">Model</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineTypes}" role="tab">Typ</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList2" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Ludzie</span>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/employees}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/employees}"
                        role="tab">Pracownicy</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/clients}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/clients}"
                        role="tab">Klienci</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/suppliers}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/suppliers}"
                        role="tab">Dostawcy</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/contacts}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/contacts}"
                        role="tab">Kontakty</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/users}" role="tab">Uzytkownicy</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/users}" role="tab">Uzytkownicy</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList3" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">HR</span>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/employeesTypes}"
-                       role="tab">Rodzaj Pracownika</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/jobTitles}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/employeeTypes}"
+                       role="tab">Rodzaj Zatrudnienia</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/jobTitles}"
                        role="tab">Stanowiska Pracy</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList4" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Finanse</span>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/invoices}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/invoices}"
                        role="tab">Faktury</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/invoicesStatuses}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/invoiceStatuses}"
                        role="tab">Faktury - Status</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList5" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Lokalizacja</span>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="../templates/states.html"
-                       th:href="@{/states}" role="tab">Wojewodztwa</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/cities}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/states}"
+                       role="tab">Wojewodztwa</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/cities}"
                        role="tab">Miasta</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" th:href="@{/locations}"
+                    <a class="list-group-item list-group-item-action"  th:href="@{/locations}"
                        role="tab">Miejsce</a>
                 </div>
             </div>

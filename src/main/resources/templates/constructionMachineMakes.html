@@ -104,26 +104,26 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            <h1>Status Maszyn</h1>
+                            <h1>Wszystkie Marki</h1>
                         </header>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                                data-whatever="@mdo">Dodaj nowy status dla Maszyn Budowlanych
+                                data-whatever="@mdo">Dodaj nowa marke
                         </button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                              aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Dodaj nowy status maszyny</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Dodaj nowa marke</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form th:action="@{/constructionMachineStatuses/addNew}" th:method="post">
+                                        <form th:action="@{/constructionMachineMakes/addNew}" th:method="post">
                                             <div class="form-group">
                                                 <label for="addJobTitleDescription"
-                                                       class="col-form-label">Nazwa:</label>
+                                                       class="col-form-label">Nazwa Marki:</label>
                                                 <input type="text" class="form-control" id="addJobTitleDescription"
                                                        name="description">
                                             </div>
@@ -145,14 +145,14 @@
                             <tbody>
                             <tr>
                                 <th><i class="icon_calendar"></i>Id</th>
-                                <th><i class="icon_profile"></i>Typ maszyny</th>
-                                <th><i class="icon_profile"></i>Opis maszyny</th>
+                                <th><i class="icon_profile"></i>Marka</th>
+                                <th><i class="icon_profile"></i>Opis</th>
                                 <th><i class="icon_cogs"></i>Akcja</th>
                             </tr>
-                            <tr th:each="constructionMachineStatus : ${constructionMachineStatuses}">
-                                <td th:text="${constructionMachineStatus.id}">Id</td>
-                                <td th:text="${constructionMachineStatus.description}">Nazwa</td>
-                                <td th:text="${constructionMachineStatus.details}">Szczegoly</td>
+                            <tr th:each="constructionMachineMake : ${constructionMachineMakes}">
+                                <td th:text="${constructionMachineMake.id}">Id</td>
+                                <td th:text="${constructionMachineMake.description}">Nazwa</td>
+                                <td th:text="${constructionMachineMake.details}">Szczegoly</td>
 
                                 <td>
                                     <!-- DETAILS BUTTON -->
@@ -160,19 +160,18 @@
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-success" data-toggle="modal"
                                             data-target="#exampleModalLong"
-                                            th:attrappend="data-target=${constructionMachineStatus.id}">
+                                            th:attrappend="data-target=${constructionMachineMake.id}">
                                         Wyswietl
                                     </button>
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
                                          aria-labelledby="exampleModalLongTitle" aria-hidden="true"
-                                         th:attrappend="id=${constructionMachineStatus.id}">
+                                         th:attrappend="id=${constructionMachineMake.id}">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Wybrany status
-                                                        maszyny</h5>
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Wybrana marka</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -181,13 +180,13 @@
                                                 <div class="modal-body">
                                                     <ul class="list-group">
                                                         <li class="list-group-item"><p class="h6">Id:</p><span
-                                                                th:text="${constructionMachineStatus.getId()}"></span>
+                                                                th:text="${constructionMachineMake.getId()}"></span>
                                                         </li>
-                                                        <li class="list-group-item"><p class="h6">Nazwa:</p><span
-                                                                th:text="${constructionMachineStatus.description}"></span>
+                                                        <li class="list-group-item"><p class="h6">Nazwa marki:</p><span
+                                                                th:text="${constructionMachineMake.description}"></span>
                                                         </li>
                                                         <li class="list-group-item"><p class="h6">Opis:</p><span
-                                                                th:text="${constructionMachineStatus.details}"></span>
+                                                                th:text="${constructionMachineMake.details}"></span>
                                                         </li>
                                                     </ul>
 
@@ -202,12 +201,12 @@
                                     </div>
                                     <button type="button"
                                             class="btn btn-info" data-toggle="modal" data-target="#myModal"
-                                            th:href="@{/constructionMachineStatuses/findById/(id=${constructionMachineStatus.id})}"
-                                            th:attrappend="data-target=${constructionMachineStatus.id}">Edytuj
+                                            th:href="@{/constructionMachineMakes/findById/(id=${constructionMachineMake.id})}"
+                                            th:attrappend="data-target=${constructionMachineMake.id}">Edytuj
                                     </button>
 
                                     <div class="modal fade" id="myModal" role="dialog"
-                                         th:attrappend="id=${constructionMachineStatus.id}">
+                                         th:attrappend="id=${constructionMachineMake.id}">
                                         <div class="modal-dialog">
 
                                             <!-- Modal content-->
@@ -224,8 +223,8 @@
                                                     <legend>Dane Rekordu</legend>
 
                                                     <form class="form-horizontal" action="#"
-                                                          th:action="@{/constructionMachineStatuses/update}"
-                                                          th:object="${constructionMachineStatus}"
+                                                          th:action="@{/constructionMachineMakes/update}"
+                                                          th:object="${constructionMachineMake}"
                                                           method="post">
                                                         <fieldset>
 
@@ -233,7 +232,7 @@
                                                                 <div class="col-md-4">
 
                                                                     <input id="id" path="id" name="id"
-                                                                           th:value="${constructionMachineStatus.id}"
+                                                                           th:value="${constructionMachineMake.id}"
                                                                            placeholder="id"
                                                                            class="form-control input-md"
                                                                     />
@@ -243,14 +242,13 @@
                                                             <!-- Text input-->
                                                             <div class="form-group">
                                                                 <label class="col-md-4 control-label"
-                                                                       for="editJobTitleDescription">Rodzaj
-                                                                    statusu</label>
+                                                                       for="editJobTitleDescription">Marka</label>
                                                                 <div class="col-md-6">
                                                                     <input id="editJobTitleDescription" path="name"
                                                                            name="description"
                                                                            type="text" placeholder="name"
                                                                            class="form-control input-md"
-                                                                           th:value="${constructionMachineStatus.description}"
+                                                                           th:value="${constructionMachineMake.description}"
                                                                     />
                                                                 </div>
                                                             </div>
@@ -262,7 +260,7 @@
                                                                            name="details"
                                                                            type="text" placeholder="name"
                                                                            class="form-control input-md"
-                                                                           th:value="${constructionMachineStatus.details}"
+                                                                           th:value="${constructionMachineMake.details}"
                                                                     />
                                                                 </div>
                                                             </div>
@@ -296,7 +294,7 @@
                                     <!-- DELETE BUTTON -->
 
                                     <a class="btn btn-danger" id="deleteButton"
-                                       th:href="@{/constructionMachineStatuses/delete/(id=${constructionMachineStatus.id})}"
+                                       th:href="@{/constructionMachineMakes/delete/(id=${constructionMachineMake.id})}"
                                        onclick="return confirm('Czy napewno chcesz usunac rekord?');"><i
                                             class="icon_close_alt2"></i>Usun</a>
                                 </td>
