@@ -45,7 +45,7 @@ public class ContactController {
         return "redirect:/contacts";
     }
 
-    @RequestMapping(value="contacts/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="contacts/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(Contact contact) {
         contactService.save(contact);
         return "redirect:/contacts";

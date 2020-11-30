@@ -45,7 +45,7 @@ public class SupplierController<CountryService> {
         return "redirect:/suppliers";
     }
 
-    @RequestMapping(value="suppliers/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="suppliers/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(Supplier supplier) {
         supplierService.save(supplier);
         return "redirect:/suppliers";
