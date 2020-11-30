@@ -43,7 +43,7 @@ public class ClientController {
         return "redirect:/clients";
     }
 
-    @RequestMapping(value = "clients/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value = "clients/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(Client client) {
         clientService.save(client);
         return "redirect:/clients";
