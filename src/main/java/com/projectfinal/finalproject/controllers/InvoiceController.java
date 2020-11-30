@@ -46,7 +46,7 @@ public class InvoiceController {
         return "redirect:/invoices";
     }
 
-    @RequestMapping(value="invoices/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="invoices/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(Invoice invoice) {
         invoiceService.save(invoice);
         return "redirect:/invoices";

@@ -60,7 +60,7 @@ public class ConstructionMachineController {
         return "redirect:/constructionMachines";
     }
 
-    @RequestMapping(value="constructionMachines/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="constructionMachines/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(ConstructionMachine constructionMachine) {
         constructionMachineService.save(constructionMachine);
         return "redirect:/constructionMachines";

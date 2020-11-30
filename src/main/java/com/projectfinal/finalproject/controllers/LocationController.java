@@ -52,7 +52,7 @@ public class LocationController {
         return "redirect:/locations";
     }
 
-    @RequestMapping(value="/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="/update", method = {RequestMethod.POST, RequestMethod.GET})
     public String update(Location location) {
         locationService.save(location);
         return "redirect:/locations";
