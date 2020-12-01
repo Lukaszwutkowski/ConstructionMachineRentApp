@@ -33,7 +33,7 @@
                     <a class="list-group-item list-group-item-action"
                        th:href="@{/constructionMachines}" role="tab">Posiadane</a>
                     <a class="list-group-item list-group-item-action"
-                       th:href="@{/constructionMachineMaintances}" role="tab">Serwis</a>
+                       th:href="@{/constructionMachineMaintenances}" role="tab">Serwis</a>
                     <a class="list-group-item list-group-item-action"
                        th:href="@{/constructionMachineStatuses}" role="tab">Status</a>
                     <a class="list-group-item list-group-item-action"
@@ -325,7 +325,7 @@
                                                                        class="col-sm-4 col-form-label">Pojazd: </label>
                                                                 <div class="col-sm-6">
                                                                     <select id="ddlVehicleEdit"
-                                                                            name="constructionmachinehireid"
+                                                                            name="constructionmachineid"
                                                                             class="form-control">
                                                                         <option>-WYBIERZ-</option>
                                                                         <option th:each="constructionMachine : ${constructionMachines}"

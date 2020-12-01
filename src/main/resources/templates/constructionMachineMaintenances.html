@@ -54,43 +54,43 @@
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList2" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Ludzie</span>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/employees}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/employees}"
                        role="tab">Pracownicy</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/clients}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/clients}"
                        role="tab">Klienci</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/suppliers}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/suppliers}"
                        role="tab">Dostawcy</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/contacts}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/contacts}"
                        role="tab">Kontakty</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/users}" role="tab">Uzytkownicy</a>
+                    <a class="list-group-item list-group-item-action" th:href="@{/users}" role="tab">Uzytkownicy</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList3" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">HR</span>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/employeeTypes}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/employeeTypes}"
                        role="tab">Rodzaj Zatrudnienia</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/jobTitles}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/jobTitles}"
                        role="tab">Stanowiska Pracy</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList4" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Finanse</span>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/invoices}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/invoices}"
                        role="tab">Faktury</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/invoiceStatuses}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/invoiceStatuses}"
                        role="tab">Faktury - Status</a>
                 </div>
             </div>
             <div class="sidebar-sticky pt-3">
                 <div class="list-group" id="myList5" role="tablist">
                     <span class="badge badge-dark" style="font-size: 20px">Lokalizacja</span>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/states}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/states}"
                        role="tab">Wojewodztwa</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/cities}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/cities}"
                        role="tab">Miasta</a>
-                    <a class="list-group-item list-group-item-action"  th:href="@{/locations}"
+                    <a class="list-group-item list-group-item-action" th:href="@{/locations}"
                        role="tab">Miejsce</a>
                 </div>
             </div>
@@ -104,52 +104,65 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            <h1>Wszystkie faktury</h1>
+                            <h1>Serwis</h1>
                         </header>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                                data-whatever="@mdo">Dodaj nowa fakture
+                                data-whatever="@mdo">Nowy serwis
                         </button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                              aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Dodaj nowa fakture</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Nowy serwis</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form th:action="@{/invoices/addNew}" th:method="post">
+                                        <form th:action="@{/constructionMachineMaintenances/addNew}" th:method="post">
+
                                             <div class="form-group">
-                                                <label for="addJobTitleDescription"
-                                                       class="col-form-label">Uwagi:</label>
-                                                <input type="text" class="form-control" id="addJobTitleDescription"
-                                                       name="remarks">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="addJobTitleDetails" class="col-form-label">Status:</label>
-                                                <select class="form-control" id="addJobTitleDetails" name="invoicestatusid">
-                                                    <option>-WYBIERZ-</option>
-                                                    <option th:each="invoiceStatus : ${invoiceStatuses}"
-                                                            th:value="${invoiceStatus.id}"
-                                                            th:text="${invoiceStatus.description}"></option>
+                                                <label for="ddlVehicleAdd" class="col-form-label">Pojazd: </label>
+                                                <select class="form-control" id="ddlVehicleAdd" name="constructionmachineid">
+                                                    <option>-SELECT-</option>
+                                                    <option th:each="constructionMachine : ${constructionMachines}"
+                                                            th:value="${constructionMachine.id}"
+                                                            th:text="${constructionMachine.name}">
+                                                    </option>
                                                 </select>
                                             </div>
+
                                             <div class="form-group">
-                                                <label for="invoiceClient" class="col-form-label">Klient:</label>
-                                                <select class="form-control" id="invoiceClient" name="clientid">
-                                                    <option>-WYBIERZ-</option>
-                                                    <option th:each="client : ${clients}"
-                                                            th:value="${client.id}"
-                                                            th:text="${client.name}"></option>
+                                                <label for="startDateAdd" class="col-form-label">Data rozpoczecia:</label>
+                                                <input type="date" class="form-control" id="startDateAdd" name="startDate">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="remarksAdd" class="col-form-label">Uwagi:</label>
+                                                <textarea class="form-control" id="remarksAdd" name="remarks" rows="3"></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="endDateAdd" class="col-form-label">Data zakonczenia:</label>
+                                                <input type="date" class="form-control" id="endDateAdd" name="endDate"></input>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="ddlSupplierAdd" class="col-form-label">Dostawca: </label>
+                                                <select class="form-control" id="ddlSupplierAdd" name="supplierid">
+                                                    <option>-SELECT-</option>
+                                                    <option th:each="supplier : ${suppliers}"
+                                                            th:value="${supplier.id}"
+                                                            th:text="${supplier.name}">
+                                                    </option>
                                                 </select>
                                             </div>
+
                                             <div class="form-group">
-                                                <label for="addDateInvoice"
-                                                       class="col-form-label">Data wystawienia/otrzymania:</label>
-                                                <input type="date" class="form-control" id="addDateInvoice"
-                                                       name="invoiceDate">
+                                                <label for="priceAdd" class="col-form-label">Cena:</label>
+                                                <input type="text" class="form-control" id="priceAdd" name="price">
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-primary">Zapisz</button>
@@ -164,36 +177,35 @@
                             <tbody>
                             <tr>
                                 <th><i class="icon_calendar"></i>Id</th>
-                                <th><i class="icon_profile"></i>Uwagi</th>
-                                <th><i class="icon_profile"></i>Status</th>
-                                <th><i class="icon_profile"></i>Klient</th>
-                                <th><i class="icon_profile"></i>Data</th>
+                                <th><i class="icon_profile"></i>Pojazd</th>
+                                <th><i class="icon_profile"></i>Data rozpoczecia</th>
+                                <th><i class="icon_profile"></i>Data zakonczenia</th>
                                 <th><i class="icon_cogs"></i>Akcja</th>
                             </tr>
-                            <tr th:each="invoice : ${invoices}">
-                                <td th:text="${invoice.id}">Id</td>
-                                <td th:text="${invoice.remarks}">Uwagi</td>
-                                <td th:text="${invoice.invoiceStatus.getDescription()}">Status</td>
-                                <td th:text="${invoice.client.getName()}">Klient</td>
-                                <td th:text="${invoice.invoiceDate}">Data</td>
+                            <tr th:each="constructionMachineMaintenance : ${constructionMachineMaintenances}">
+                                <td th:text="${constructionMachineMaintenance.id}">Id</td>
+                                <td th:text="${constructionMachineMaintenance.constructionMachine.name}">Pojazd</td>
+                                <td th:text="${constructionMachineMaintenance.startDate}">Data rozpoczecia</td>
+                                <td th:text="${constructionMachineMaintenance.endDate}">Data zakonczenia</td>
                                 <td>
                                     <!-- DETAILS BUTTON -->
 
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-success" data-toggle="modal"
                                             data-target="#exampleModalLong"
-                                            th:attrappend="data-target=${invoice.id}">
+                                            th:attrappend="data-target=${constructionMachineMaintenance.id}">
                                         Wyswietl
                                     </button>
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
                                          aria-labelledby="exampleModalLongTitle" aria-hidden="true"
-                                         th:attrappend="id=${invoice.id}">
+                                         th:attrappend="id=${constructionMachineMaintenance.id}">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Wybrana faktura</h5>
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Wybrany
+                                                        rekord</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -202,19 +214,25 @@
                                                 <div class="modal-body">
                                                     <ul class="list-group">
                                                         <li class="list-group-item"><p class="h6">Id:</p><span
-                                                                th:text="${invoice.getId()}"></span>
+                                                                th:text="${constructionMachineMaintenance.getId()}"></span>
                                                         </li>
                                                         <li class="list-group-item"><p class="h6">Uwagi:</p><span
-                                                                th:text="${invoice.remarks}"></span>
+                                                                th:text="${constructionMachineMaintenance.remarks}"></span>
                                                         </li>
-                                                        <li class="list-group-item"><p class="h6">Status:</p><span
-                                                                th:text="${invoice.invoiceStatus.getDescription()}"></span>
+                                                        <li class="list-group-item"><p class="h6">Nazwa:</p><span
+                                                                th:text="${constructionMachineMaintenance.constructionMachine.name}"></span>
                                                         </li>
-                                                        <li class="list-group-item"><p class="h6">Klient:</p><span
-                                                                th:text="${invoice.client.getName()}"></span>
+                                                        <li class="list-group-item"><p class="h6">Dostawca:</p><span
+                                                                th:text="${constructionMachineMaintenance.supplier.getName()}"></span>
                                                         </li>
-                                                        <li class="list-group-item"><p class="h6">Data:</p><span
-                                                                th:text="${invoice.invoiceDate}"></span>
+                                                        <li class="list-group-item"><p class="h6">Data rozpoczecia:</p><span
+                                                                th:text="${constructionMachineMaintenance.startDate}"></span>
+                                                        </li>
+                                                        <li class="list-group-item"><p class="h6">Data zakonczenia:</p><span
+                                                                th:text="${constructionMachineMaintenance.endDate}"></span>
+                                                        </li>
+                                                        <li class="list-group-item"><p class="h6">Cena:</p><span
+                                                                th:text="${constructionMachineMaintenance.price}"></span>
                                                         </li>
                                                     </ul>
 
@@ -229,12 +247,12 @@
                                     </div>
                                     <button type="button"
                                             class="btn btn-info" data-toggle="modal" data-target="#myModal"
-                                            th:href="@{/invoices/findById/(id=${invoice.id})}"
-                                            th:attrappend="data-target=${invoice.id}">Edytuj
+                                            th:href="@{/constructionMachineMaintenances/findById/(id=${constructionMachineMaintenance.id})}"
+                                            th:attrappend="data-target=${constructionMachineMaintenance.id}">Edytuj
                                     </button>
 
                                     <div class="modal fade" id="myModal" role="dialog"
-                                         th:attrappend="id=${invoice.id}">
+                                         th:attrappend="id=${constructionMachineMaintenance.id}">
                                         <div class="modal-dialog">
 
                                             <!-- Modal content-->
@@ -251,8 +269,8 @@
                                                     <legend>Dane Rekordu</legend>
 
                                                     <form class="form-horizontal" action="#"
-                                                          th:action="@{/invoices/update}"
-                                                          th:object="${invoice}"
+                                                          th:action="@{/constructionMachineMaintenances/update}"
+                                                          th:object="${constructionMachineMaintenance}"
                                                           method="post">
                                                         <fieldset>
 
@@ -260,7 +278,7 @@
                                                                 <div class="col-md-4">
 
                                                                     <input id="id" path="id" name="id"
-                                                                           th:value="${invoice.id}"
+                                                                           th:value="${constructionMachineMaintenance.id}"
                                                                            placeholder="id"
                                                                            class="form-control input-md"
                                                                     />
@@ -268,40 +286,55 @@
                                                             </div>
 
                                                             <!-- Text input-->
+                                                            <div class="form-group row">
+                                                                <label for="ddlVehicleEdit"
+                                                                       class="col-sm-4 col-form-label">Pojazd: </label>
+                                                                <div class="col-sm-6">
+                                                                    <select id="ddlVehicleEdit"
+                                                                            name="constructionmachineid"
+                                                                            class="form-control">
+                                                                        <option>-WYBIERZ-</option>
+                                                                        <option th:each="constructionMachine : ${constructionMachines}"
+                                                                                th:value="${constructionMachine.id}"
+                                                                                th:text="${constructionMachine.name}">
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label for="ddlClientEdit"
+                                                                       class="col-sm-4 col-form-label">Dostawca: </label>
+                                                                <div class="col-sm-6">
+                                                                    <select id="ddlClientEdit" name="supplierid"
+                                                                            class="form-control">
+                                                                        <option>-SELECT-</option>
+                                                                        <option th:each="supplier : ${suppliers}"
+                                                                                th:value="${supplier.id}"
+                                                                                th:text="${supplier.name}">
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
                                                             <div class="form-group">
-                                                                <label class="col-md-4 control-label"
-                                                                       for="editJobTitleDescription">Nazwa</label>
-                                                                <div class="col-md-6">
-                                                                    <input id="editJobTitleDescription" path="name"
-                                                                           name="remarks"
-                                                                           type="text" placeholder="name"
-                                                                           class="form-control input-md"
-                                                                           th:value="${invoice.remarks}"
-                                                                    />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="invoiceeditstatus" class="col-form-label">Status:</label>
-                                                                    <select class="form-control" id="invoiceeditstatus" name="invoicestatusid">
-                                                                        <option>-WYBIERZ-</option>
-                                                                        <option th:each="invoiceStatus : ${invoiceStatuses}"
-                                                                                th:value="${invoiceStatus.id}"
-                                                                                th:text="${invoiceStatus.description}"></option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="invoiceClient" class="col-form-label">Klient:</label>
-                                                                    <select class="form-control" id="invoiceClientedit" name="clientid">
-                                                                        <option>-WYBIERZ-</option>
-                                                                        <option th:each="client : ${clients}"
-                                                                                th:value="${client.id}"
-                                                                                th:text="${client.name}"></option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="editDateInvoice"
-                                                                           class="col-form-label">Data wystawienia/otrzymania:</label>
-                                                                    <input type="date" class="form-control" id="editDateInvoice"
-                                                                           name="invoiceDate">
+                                                                <label for="startDateEdit" class="col-form-label">Data rozpoczecia:</label>
+                                                                <input type="date" class="form-control" id="startDateEdit" name="startDate">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="remarksEdit" class="col-form-label">Uwagi:</label>
+                                                                <textarea class="form-control" id="remarksEdit" name="remarks" rows="3"></textarea>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="endDateEdit" class="col-form-label">Data zakonczenia:</label>
+                                                                <input type="date" class="form-control" id="endDateEdit" name="endDate"></input>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label for="priceEdit" class="col-sm-4 col-form-label">Cena: </label>
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" class="form-control"
+                                                                           id="priceEdit" name="price"
+                                                                           placeholder="Price">
                                                                 </div>
                                                             </div>
 
@@ -333,7 +366,7 @@
                                     <!-- DELETE BUTTON -->
 
                                     <a class="btn btn-danger" id="deleteButton"
-                                       th:href="@{/invoices/delete/(id=${invoice.id})}"
+                                       th:href="@{/constructionMachineMaintenances/delete/(id=${constructionMachineMaintenance.id})}"
                                        onclick="return confirm('Czy napewno chcesz usunac rekord?');"><i
                                             class="icon_close_alt2"></i>Usun</a>
                                 </td>
