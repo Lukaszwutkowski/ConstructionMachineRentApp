@@ -173,9 +173,9 @@
                             <tr th:each="invoice : ${invoices}">
                                 <td th:text="${invoice.id}">Id</td>
                                 <td th:text="${invoice.remarks}">Uwagi</td>
-                                <td th:text="${invoice.invoiceStatus}">Status</td>
-                                <td th:text="${invoice.client}">Klient</td>
-                                <td th:text="${invoice.invoiceDate}">Data</td>
+                                <td th:text="${invoice.invoiceStatus.getDescription()}">Status</td>
+                                <td th:text="${invoice.client.getName()}">Klient</td>
+                                <td th:text="${invoice.invoiceDate.}">Data</td>
                                 <td>
                                     <!-- DETAILS BUTTON -->
 
