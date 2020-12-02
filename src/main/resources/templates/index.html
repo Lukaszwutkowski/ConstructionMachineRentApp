@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <title>Invoices Management</title>
+</head>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <div class="list-group" id="myList" role="tablist">
+                    <span class="badge badge-dark" style="font-size: 20px">Maszyny Budowlane - Stan</span>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachines}" role="tab">Posiadane</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineMaintenances}" role="tab">Serwis</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineStatuses}" role="tab">Status</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineMovements}" role="tab">Pozycja</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineHires}" role="tab">Wynajem</a>
+                </div>
+                <div class="sidebar-sticky pt-3">
+                    <span class="badge badge-dark" style="font-size: 20px">Maszyny Budowlane - Dane</span>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineMakes}" role="tab">Marka</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineModels}" role="tab">Model</a>
+                    <a class="list-group-item list-group-item-action"
+                       th:href="@{/constructionMachineTypes}" role="tab">Typ</a>
+                </div>
+            </div>
+            <div class="sidebar-sticky pt-3">
+                <div class="list-group" id="myList2" role="tablist">
+                    <span class="badge badge-dark" style="font-size: 20px">Ludzie</span>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/employees}"
+                       role="tab">Pracownicy</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/clients}"
+                       role="tab">Klienci</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/suppliers}"
+                       role="tab">Dostawcy</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/contacts}"
+                       role="tab">Kontakty</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/users}" role="tab">Uzytkownicy</a>
+                </div>
+            </div>
+            <div class="sidebar-sticky pt-3">
+                <div class="list-group" id="myList3" role="tablist">
+                    <span class="badge badge-dark" style="font-size: 20px">HR</span>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/employeeTypes}"
+                       role="tab">Rodzaj Zatrudnienia</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/jobTitles}"
+                       role="tab">Stanowiska Pracy</a>
+                </div>
+            </div>
+            <div class="sidebar-sticky pt-3">
+                <div class="list-group" id="myList4" role="tablist">
+                    <span class="badge badge-dark" style="font-size: 20px">Finanse</span>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/invoices}"
+                       role="tab">Faktury</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/invoiceStatuses}"
+                       role="tab">Faktury - Status</a>
+                </div>
+            </div>
+            <div class="sidebar-sticky pt-3">
+                <div class="list-group" id="myList5" role="tablist">
+                    <span class="badge badge-dark" style="font-size: 20px">Lokalizacja</span>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/states}"
+                       role="tab">Wojewodztwa</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/cities}"
+                       role="tab">Miasta</a>
+                    <a class="list-group-item list-group-item-action"  th:href="@{/locations}"
+                       role="tab">Miejsce</a>
+                </div>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <h1>Wszystkie faktury</h1>
+                        </header>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+</body>
+</html>
