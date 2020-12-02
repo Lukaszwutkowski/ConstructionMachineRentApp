@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 class UserServiceTest {
@@ -23,7 +24,7 @@ class UserServiceTest {
     private BCryptPasswordEncoder mockBCryptPasswordEncoder;
 
     private UserService userServiceUnderTest;
-    private User.UserBuilder user;
+    private User user;
 
     @Before
     public void setUp() {
@@ -33,36 +34,39 @@ class UserServiceTest {
                 mockBCryptPasswordEncoder);
         user = User.builder()
                 .id(1)
-                .userName("admin")
-                .password("123")
-                .active(true);
+                .firstName("Jan")
+                .lastName("Kowalski")
+                .email("test@test.com")
+                .build();
 
         Mockito.when(mockUserRepository.save(any()))
+                .thenReturn(user);
+        Mockito.when(mockUserRepository.findByEmail(anyString()))
                 .thenReturn(user);
     }
 
     @Test
-    public void testFindUserByUserName() {
+    public void testFindUserByEmail() {
         // Setup
-        final String userName = "admin";
+        final String email = "test@test.com";
 
         // Run the test
-        final User result = userServiceUnderTest.findUserByUserName(userName);
+        final User result = userServiceUnderTest.findUserByEmail(email);
 
         // Verify the results
-        assertEquals(userName, result.getUserName());
+        assertEquals(email, result.getEmail());
     }
 
     @Test
     public void testSaveUser() {
         // Setup
-        final String userName = "admin";
+        final String email = "test@test.com";
 
         // Run the test
         User result = userServiceUnderTest.saveUser(User.builder().build());
 
         // Verify the results
-        assertEquals(userName, result.getUserName());
+        assertEquals(email, result.getEmail());
     }
 
 }

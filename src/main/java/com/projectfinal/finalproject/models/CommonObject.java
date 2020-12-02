@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class)
-public class CommonObject {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class CommonObject extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
