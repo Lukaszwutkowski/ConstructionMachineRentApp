@@ -1,6 +1,7 @@
 package com.projectfinal.finalproject;
 
 import com.projectfinal.finalproject.config.SpringSecurityAuditorAware;
+import com.projectfinal.finalproject.models.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +23,7 @@ public class FinalprojectApplication {
     }
 
     @Bean
-    public AuditorAware<String> auditorAware() {
+    public AuditorAware<User> auditorAware() {
         return new SpringSecurityAuditorAware();
     }
 }

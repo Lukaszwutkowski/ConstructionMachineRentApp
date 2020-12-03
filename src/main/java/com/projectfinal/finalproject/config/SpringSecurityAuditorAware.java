@@ -1,18 +1,21 @@
 package com.projectfinal.finalproject.config;
 
+import com.projectfinal.finalproject.models.User;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Optional;
 
-public class SpringSecurityAuditorAware implements AuditorAware<String> {
+public class SpringSecurityAuditorAware implements AuditorAware<User> {
     @Override
-    public Optional<String> getCurrentAuditor() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    public Optional<User> getCurrentAuditor() {
 
-        String username = authentication.getName();
-
-        return Optional.ofNullable(username).filter(s -> !s.isEmpty());
+        return Optional.ofNullable(SecurityContextHolder.getContext())
+        .map(SecurityContext::getAuthentication)
+                .filter(Authentication::isAuthenticated)
+                .map(Authentication::getPrincipal)
+                .map(User.class::cast);
     }
 }
